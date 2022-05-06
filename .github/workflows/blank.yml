@@ -10,16 +10,9 @@ jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Build project
-      run : |
-        echo "Hello world"
-    
-    - name: Create Release
-      id: create_release
-      uses: actions/checkout@v2
-      uses: ncipollo/release-action@v1
-        with:
-          artifacts: "release.tar.gz,foo/*.txt"
-          bodyFile: "body.md"
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "release.tar.gz,*.txt"
+        bodyFile: "body.md"
+        token: ${{ secrets.GITHUB_TOKEN }}
