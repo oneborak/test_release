@@ -8,7 +8,7 @@ on:
       tags:
         description: 'Test scenario tags'
         
-  jobs:
+jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
