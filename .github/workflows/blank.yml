@@ -1,17 +1,14 @@
 on: 
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      release_notes:
+        description: 'Release notes'
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
+        type: string
         
 jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}" 
+        echo "Release notes: ${{ github.event.inputs.release_notes }}" 
