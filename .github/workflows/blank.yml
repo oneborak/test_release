@@ -20,4 +20,3 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit: ${{ github.sha }}
         tag: "0.0.1"
-        bodyFile: "body.md"
