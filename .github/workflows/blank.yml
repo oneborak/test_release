@@ -7,16 +7,19 @@ on:
         type: string
         
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+  windows-tests:
+    runs-on: windows-2019
     steps:
-    - uses: actions/checkout@v2
-    - uses: ncipollo/release-action@v1
+
+    - uses: actions/checkout@v3
       with:
-        artifacts: "release.tar.gz,*.cpp"
-        bodyFile: "body.md"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit: ${{ github.sha }}
-        tag: "0.0.1"
+        fetch-depth: 0
+        path: "vpn-client-src"
+        submodules: recursive
+
+    - name: Run tests
+      shell: cmd
+      run: |
+          "vpn-client-src\untitled25.exe" 1 || exit /b %errorlevel%
+          "vpn-client-src\untitled25.exe" 0 || exit /b %errorlevel%
+          "Echo Finish"
