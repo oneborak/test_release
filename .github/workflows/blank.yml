@@ -20,6 +20,6 @@ jobs:
     - name: Run tests
       shell: cmd
       run: |
-          "vpn-client-src\untitled25.exe" 0 || exit /b 1
-          "vpn-client-src\untitled25.exe" 0 || exit /b 1
+          "vpn-client-src\untitled25.exe" || exit /b 1
+          "vpn-client-src\untitled25.exe" || exit /b 1
           "Echo Finish"
